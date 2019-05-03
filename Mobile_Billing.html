@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html >
+	<head>
+		<meta charset="utf-8">
+                                          
+		<title>Data Pricing</title>
+	</head>
+	<body style="background-color:powderblue;">
+                                   
+
+		<center>
+                                                        
+                                                       <h1 style="color:black;"><b><i>MOBILE BILLING</i></b></h1>
+                                                        <p>Enter Used Data in Mb</p>
+
+			<input type="text" placeholder="Enter Used Data" id="getInput">
+			<br>
+			<br>
+			<button type="button" name="button" onclick="getOutput()">Display bill</button>
+			<p>The amount to be paid in Rs. is <span id="showOutput" ></span></p>
+
+			<script type="text/javascript">
+					function getOutput() {
+						var input = Number(document.getElementById("getInput").value);
+						var output = 0;
+						
+						if(input >= 0 && input <= 1024) {
+							output += (input/10);
+						} else if (input > 1024 && input <=2048) {
+							output += (input/10);
+							output += 90;
+						} else if(input > 2048 && input <= 3072) {
+							output += (input/5);
+							output += 150;
+						} else if(input > 3072 && input <= 4096) {
+							output += (input/7);
+							output += 250;
+						} else if(input > 4096 && input <= 5120) {
+							output += 300;
+							if(input > 4403.2){
+								output += ((input - 4403.2)/10);
+							}
+						}
+						document.getElementById("showOutput").innerHTML = output;
+					}
+			</script>
+		</center>
+	</body>
+</html>
